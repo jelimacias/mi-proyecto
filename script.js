@@ -1,15 +1,16 @@
-const phrases = [
-    "El éxito es la suma de pequeños esfuerzos repetidos día tras día.",
-    "Nunca es tarde para ser lo que podrías haber sido.",
-    "La vida es un 10% lo que te ocurre y un 90% cómo reaccionas a ello.",
-    "El único modo de hacer un gran trabajo es amar lo que haces.",
-    "El futuro pertenece a quienes creen en la belleza de sus sueños."
-];
+// Usamos localStorage para almacenar el contador
+let visitCount = localStorage.getItem('visitCount');
+if (!visitCount) {
+    visitCount = 0; // Si es la primera vez que se accede, inicializamos el contador.
+}
 
-const generateButton = document.getElementById("generateButton");
-const phraseElement = document.getElementById("phrase");
+function incrementVisit() {
+    visitCount++;
+    localStorage.setItem('visitCount', visitCount); // Guardamos el contador actualizado en localStorage
+    document.getElementById('visitorCount').innerText = `La página ha sido visitada ${visitCount} veces.`;
+}
 
-generateButton.addEventListener("click", () => {
-    const randomIndex = Math.floor(Math.random() * phrases.length);
-    phraseElement.textContent = phrases[randomIndex];
-});
+// Mostrar el contador al cargar la página
+window.onload = function() {
+    document.getElementById('visitorCount').innerText = `La página ha sido visitada ${visitCount} veces.`;
+};
