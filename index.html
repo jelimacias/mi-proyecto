@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contador de Visitas</title>
+    <title>Lista de Tareas</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Contador de Visitas</h1>
-        <p id="visitorCount">Cargando...</p>
-        <button onclick="incrementVisit()">Visitar Página</button>
+        <h1>Lista de Tareas</h1>
+        <input type="text" id="taskInput" placeholder="Añadir una nueva tarea..." />
+        <button onclick="addTask()">Añadir Tarea</button>
+        <ul id="taskList"></ul>
     </div>
     <script src="script.js"></script>
 </body>
